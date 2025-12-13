@@ -124,28 +124,25 @@ padding: 6px 8px;
 
            /* HERO */
 .hero {
-  padding: 80px 24px;
+  padding: 60px 16px;
   text-align: center;
   background-image: url("img/tempat seblak ceria.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  color: rgb(238, 237, 233);
-  text-shadow: 3px 3px 8px rgba(0,0,0,0.90);
   margin-top: 60px;
-  padding: 60px 16px;
+  color: #fff;
 }
 
-.hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  color: rgb(247, 245, 244); /* biar kebaca di atas foto */
-  text-shadow: 3px 3px 8px rgba(0,0,0,0.45);
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* overlay gelap */
+  z-index: 0;
 }
+
 
 .hero p {
   font-size: 16px;
@@ -390,4 +387,5 @@ document.getElementById("nav").classList.toggle("active");
   </body>
 
 </html>
+
 
