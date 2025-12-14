@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seblak Ceria</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --red: #e64c73;
+        --yellow: #ffd464;
+        --orange: #eeaa7a;
+        --bg: #e9dfd1;
+        --dark: #1f2937;
+      }
+      p {
+        color: var(--orange);
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: #333;
+      }
+
+      /* ================= HEADER ================= */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 0 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(233, 223, 209, 0.95); /* biar gak putih polos */
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+      }
+
+      header h2 {
+        margin: 0;
+        font-family: "Fredoka", sans-serif;
+        color: var(--orange);
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-family: "Fredoka", sans-serif;
+        font-weight: 600;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      nav a:hover {
+        color: var(--red);
+      }
+
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .burger span {
+        width: 26px;
+        height: 3px;
+        background: var(--orange);
+      }
+
+      /* ================= MOBILE NAV ================= */
+      @media (max-width: 768px) {
+        nav {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 220px;
+          background: rgba(80, 75, 78, 0.9);
+          padding: 20px;
+          transform: translateX(100%);
+          transition: 0.3s;
+        }
+        nav.active {
+          transform: translateX(0);
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 14px;
+        }
+        nav a {
+          color: #fff;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      /* ================= HERO ================= */
+      .hero {
+        margin-top: 70px;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        background: url("img/tempat seblak ceria.jpg") center/cover no-repeat;
+        position: relative;
+        color: #fff;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .hero h1,
+      .hero p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 56px; /* diperbesar */
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero p {
+        font-size: 22px;
+        max-width: 700px;
+        text-shadow: 2px 2px 8px (--yellow);
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 40px;
+        }
+        .hero p {
+          font-size: 18px;
+        }
+      }
+
+      /* ================= SECTION ================= */
+      .section {
+        padding: 80px 24px;
+        text-align: center;
+      }
+
+      .section h2 {
+        font-family: "Fredoka", sans-serif;
+        font-size: 42px;
+        color: var(--orange);
+        margin-bottom: 24px;
+      }
+
+      .section p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto 24px;
+      }
+
+      /* ================= MENU ================= */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .menu-card {
+        background: #fff;
+        padding: 18px;
+        border-radius: 22px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: 0.25s;
+      }
+
+      .menu-card:hover {
+        transform: scale(1.05);
+      }
+
+      .menu-card img {
+        width: 100%;
+        border-radius: 18px;
+        margin-bottom: 10px;
+      }
+
+      .menu-card h3 {
+        font-family: "Fredoka", sans-serif;
+        color: var(--orange);
+        margin: 6px 0;
+      }
+
+      .menu-card span {
+        font-weight: 600;
+        color: var(--yellow);
+      }
+
+      /* ================= MAP ================= */
+      .map-container iframe {
+        width: 100%;
+        height: 350px;
+        border: 0;
+        border-radius: 18px;
+      }
+
+      /* ================= ORDER ================= */
+      .order-btn {
+        display: inline-block;
+        background: var(--orange);
+        padding: 16px 28px;
+        border-radius: 20px;
+        color: #fff;
+        font-family: "Fredoka", sans-serif;
+        font-size: 20px;
+        text-decoration: none;
+        animation: wiggle 1.3s ease-in-out infinite;
+      }
+
+      @keyframes wiggle {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Seblak Ceria</h2>
+      <nav id="nav">
+        <ul>
+          <li>
+            <a href="#tentang"><i data-lucide="info"></i> Tentang</a>
+          </li>
+          <li>
+            <a href="#menu"><i data-lucide="utensils"></i> Menu</a>
+          </li>
+          <li>
+            <a href="#lokasi"><i data-lucide="map-pin"></i> Lokasi</a>
+          </li>
+          <li>
+            <a href="#order"><i data-lucide="shopping-cart"></i> Order</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="burger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Seblak Ceria</h1>
+      <p>Pedas, Hangat, Bikin Nagih!</p>
+    </section>
+
+    <section id="tentang" class="section">
+      <h2>Tentang Kami</h2>
+      <p>
+        Seblak Ceria hadir sebagai pilihan makanan pedas favorit dengan rasa
+        khas, harga ramah di kantong, dan dijamin bikin mood jadi ceria lagi.
+      </p>
+    </section>
+
+    <section id="menu" class="section">
+      <h2>Menu</h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="img/seblak ori fix.jpg" />
+          <h3>Seblak Original</h3>
+          <span>Rp 10.000</span>
+        </div>
+        <div class="menu-card">
+          <img src="img/seblak sosis fix.jpg" />
+          <h3>Seblak Sosis</h3>
+          <span>Rp 12.000</span>
+        </div>
+        <div class="menu-card">
+          <img src="img/seblak baso ikan fix.jpg" />
+          <h3>Seblak Baso Ikan</h3>
+          <span>Rp 12.000</span>
+        </div>
+        <div class="menu-card">
+          <img src="img/seblak ceker fix.jpg" />
+          <h3>Seblak Ceker</h3>
+          <span>Rp 12.000</span>
+        </div>
+        <div class="menu-card">
+          <img src="img/seblak komplit fix.jpg" />
+          <h3>Seblak Komplit</h3>
+          <span>Rp 15.000</span>
+        </div>
+        <div class="menu-card">
+          <img src="img/seblak kompit ceker fix.jpg" />
+          <h3>Seblak Komplit + Ceker</h3>
+          <span>Rp 17.000</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="lokasi" class="section">
+      <h2>Lokasi Kami</h2>
+      <p>Datang langsung & nikmati seblak paling ceria!</p>
+      <div class="map-container" style="max-width: 800px; margin: auto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.3739907178024!2d106.82469867499137!3d-6.345591593644195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69edea2366561f%3A0x45be4f5a6967e014!2sAYAM%20BEBEK%20BATOKOK!5e0!3m2!1sid!2sid!4v1764916157452"
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="order" class="section">
+      <h2>Order Sekarang</h2>
+      <p>Klik untuk order via WhatsApp 👇</p>
+      <a href="https://wa.me/6282299447549" class="order-btn">Pesan Sekarang</a>
+    </section>
+
+    <footer>© 2025 Seblak Ceria — Pedasnya Bikin Ceria 🔥</footer>
+
+    <script>
+      function toggleNav() {
+        document.getElementById("nav").classList.toggle("active");
+      }
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
